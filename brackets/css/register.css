@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #E5E4E2;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  background: #FFFFFF;
+  color: #000000;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 100px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+
+#signinBtn {
+  background-color: #00EBC7;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#signinBtn:hover {
+  background-color: #FF5470;
+}
+
+#signinBtn {
+  color: #000;
+  background-color: #00EBC7;
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#signinBtn:hover {
+  background-color: #FF5470;
+}
+
+/* REGISTER FORM */
+.containerR {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+    margin-top: 30px;
+}
+
+.containerR h2 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-group input[type="checkbox"] + label{
+    width: auto;
+    font-size: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF5470;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: #00EBC7;
+}
+
+/* FOOTER */
+footer {
+  background: #00EBC7;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo img {
+  width: 200px;
+  margin-right: auto;
+}
+
+.footer-links {
+  display: flex;
+}
+
+.footer-section {
+  margin-right: 80px;
+}
+
+.footer-section:last-child {
+  margin-right: 100px;
+}
+
+.footer-section h3 {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-section:nth-child(1) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section:nth-child(2) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section:nth-child(3) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/*student or company*/
+.input-groupC label {
+    display: inline-block;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.input-groupC input[type="radio"] {
+    display: none;
+}
+
+.input-groupC label::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.input-groupC input[type="radio"]:checked + label::before {
+    background-color: #000;
+}
