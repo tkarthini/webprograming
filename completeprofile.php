@@ -1,27 +1,27 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "internhub_database";
+$type = $_GET["type"];
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if($type == "student") {
+    $redirect = "aboutus_student.php";
+    
+}
+elseif($type == "company") {
+    $redirect = "aboutus_company.php";
+    
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InternHub - Home</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>InternHub - Complete Profile</title>
+  <link rel="stylesheet" href="css/completeprofile.css">
 </head>
 <body>
- 
-<header>
+  <header>
     <div class="container">
        <a href="index.php">
         <img src="images/logo.png" alt="Job Seeker" class="logo">
@@ -35,20 +35,27 @@ if (!$conn) {
         </a>
     </div>
 </header>
- 
-  <section id="scrollToSection" class="hero">
-    <div class="container">
-      <h2>FIND THE INTERNSHIP THAT <span>SHINE</span> YOUR LIFE</h2>
-      <p>Intern Hub is here for you to get your dream intern fast. Unlock your new step of life.</p>
-      <a href="findjob_notlogin.php" class="btn">Search Internship</a>
-    </div>
-    <div class="scroll-down-button">
-      <a href="#scrollToSection">
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </div>
-  </section>
   
+ <body>
+
+<div class="outer-box">
+    <h1>Nice one!</h1>
+    <p>Your basic InternHub Profile is now up and running.</p>
+    <div class="inner-box">
+        <div class="icon">
+            <img src="images/edit%20profile.png" alt="Icon">
+        </div>
+        <div class="content">
+            <p>The more you add to your Profile, the more you stand out from other candidates.</p>
+            <button onclick="completeProfile()">Complete Your Profile</button>
+        </div>
+    </div>
+    <a href="<?php echo $redirect; ?>"><button class="continue-btn" onclick="">Continue</button></a>
+</div>
+
+
+</body>
+ 
   <footer>
   <div class="container">
     <div class="footer-content">
