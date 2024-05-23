@@ -1,11 +1,50 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "internhub_database";
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO contactus_table (contactus_name, contactus_email, contactus_subject, contactus_message) VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $subject, $message);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        echo "<script>
+            alert('Your message has been sent successfully!');
+            window.location.href = 'index.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('Error: Could not save your message. Please try again later.');
+            </script>";
+    }
+}
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternHub - About Us</title>
-    <link rel="stylesheet" href="css/aboutus_student.css">
+    <title>InternHub - Contact Us</title>
+    <link rel="stylesheet" href="css/contactus_student.css">
 </head>
 
 <body>
@@ -32,43 +71,25 @@
             </nav>
         </div>
     </header>
-    <section id="scrollToSection" class="hero">
-        <div class="container">
-            <img src="images/logo.png">
-            <h2><span>InternHub</span> is a fast and simple platform for both students and employers to fill internships on the go.</h2>
-        </div>
-    </section>
 
-    <body>
-        <div class="content1">
-            <div class="text1">
-                <h3>About Us</h3>
-                <p>At InternHub, we understand that internships are pivotal stepping stones in a student's academic and professional journey. Founded on the belief that every student deserves access to enriching opportunities, we strive to bridge the gap between ambition and experience.</p>
-            </div>
-            <img src="images/about%20us.png" alt="Aboutus Image">
-        </div>
-        <div class="content2">
-            <img src="images/about%20us%202.png">
-            <div class="text2">
-                <h3>Why InternHub?</h3>
-                <p>Our platform is designed to empower students and graduates to explore diverse internship opportunities tailored to their interests, skills, and career aspirations. Whether you're looking to gain hands-on experience in a specific industry, broaden your skill set, or simply explore different career paths, InternHub is here to support you every step of the way.</p>
-            </div>
-        </div>
-        <section class="two-column-section">
-            <div class="columnL">
-                <h2>For Students</h2>
-                <img src="images/for%20students.png" alt="Description">
-                <p> InternHub simplify the internship search process for students by providing a centralized platform with comprehensive information that align with their goals and aspirations.</p>
-                <button onclick="window.location.href = 'findjob_student.php';">View Jobs</button>
-            </div>
-            <div class="columnR">
-                <h2>For Companies</h2>
-                <img src="images/for%20companies.png" alt="Description">
-                <p> InternHub provide companies with a convenient and efficient platform to attract, screen, and recruit interns, offering advanced features and tools to streamline the entire recruitment process.</p>
-                <button>View Candidates</button>
-            </div>
-        </section>
-    </body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contactForm" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <footer>
         <div class="container">
@@ -105,4 +126,5 @@
         </div>
     </footer>
 </body>
+
 </html>

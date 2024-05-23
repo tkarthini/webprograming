@@ -9,6 +9,32 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO contactus_table (contactus_name, contactus_email, contactus_subject, contactus_message) VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $subject, $message);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        echo "<script>
+            alert('Your message has been sent successfully!');
+            window.location.href = 'index.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('Error: Could not save your message. Please try again later.');
+            </script>";
+    }
+}
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +43,11 @@ if (!$conn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternHub - Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>InternHub - Contact Us</title>
+    <link rel="stylesheet" href="css/contactus.css">
 </head>
 
 <body>
-
     <header>
         <div class="container">
             <a href="index.php">
@@ -38,18 +63,24 @@ if (!$conn) {
         </div>
     </header>
 
-    <section id="scrollToSection" class="hero">
-        <div class="container">
-            <h2>FIND THE INTERNSHIP THAT <span>SHINE</span> YOUR LIFE</h2>
-            <p>Intern Hub is here for you to get your dream intern fast. Unlock your new step of life.</p>
-            <a href="findjob_notlogin.php" class="btn">Search Internship</a>
-        </div>
-        <div class="scroll-down-button">
-            <a href="#scrollToSection">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contactForm" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <footer>
         <div class="container">

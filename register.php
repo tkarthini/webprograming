@@ -102,7 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
                 <button type="submit" class="btn" name="register">Register</button>
             </form>
         </div>
-
     </body>
 
     <footer>
@@ -115,25 +114,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
                     <div class="footer-section">
                         <h3>Students</h3>
                         <ul>
-                            <li><a href="#">Search</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="findjob_notlogin.php">Job Search</a></li>
+                            <li><a href="signin.php">Profile</a></li>
+                            <li><a href="signin.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Companies</h3>
                         <ul>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Post Job</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="register.php">Register</a></li>
+                            <li><a href="register.php">Profile</a></li>
+                            <li><a href="register.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="aboutus.php">About Us</a></li>
+                            <li><a href="contactus.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </nav>

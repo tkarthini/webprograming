@@ -11,22 +11,23 @@
 <body>
     <header>
         <div class="container">
-           <a href="aboutus_company.php">
-            <img src="images/logo.png" alt="Job Seeker" class="logo">
+            <a href="aboutus_company.php">
+                <img src="images/logo.png" alt="Job Seeker" class="logo">
+            </a>
             <nav>
                 <ul>
                     <li><a href="aboutus_company.php">About Us</a></li>
                     <li><a href="findcandidate_company.php">Candidate Profiles</a></li>
                     <li><a href="manageapplication_company.php">Applications</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
                     <div class="dropdown">
                         <a href="#" class="dropbtn"><img src="images/profile.png" alt="Profile" class="signin-img"></a>
                         <div class="dropdown-content">
-                            <a href="#">Profile</a>
+                            <a href="companyprofile(boomedia)_company.php">Profile</a>
                             <a href="manageapplication_company.php">Manage Application</a>
                             <a href="settings_company.php">Settings</a>
                             <hr>
-                            <a href="#" class="signout">Sign Out</a>
+                            <a href="index.php" class="signout">Sign Out</a>
                         </div>
                     </div>
                 </ul>
@@ -206,103 +207,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 ';
         } elseif (isset($_POST["rejected"])) {
-        // Rejected Application 1
-        echo'<div class="application-box">
-     <div class="content">
-        <h2>John Doe</h2>
-        <p>Job : Graphics Designer</p>
-        <p>Reason: Not a good fit for the role</p>
-        <p>Rejected Date: 20 March 2024</p>
-     </div>
-     <div class="view-application">
+            // Rejected Application 1
+            echo'<div class="application-box">
+         <div class="content">
+            <h2>John Doe</h2>
+            <p>Job : Graphics Designer</p>
+            <p>Reason: Not a good fit for the role</p>
+            <p>Rejected Date: 20 March 2024</p>
+         </div>
+         <div class="view-application">
+            <button>View Application</button>
+         </div>
+      </div>';
+            // Rejected Application 2
+            echo' <div class="application-box">
+         <div class="content">
+            <h2>Alya Natasya</h2>
+            <p>Job : Web Designer</p>
+            <p>Reason: Not a good fit for the role</p>
+            <p>Rejected Date: 27 March 2024</p>
+         </div>
+         <div class="view-application">
+            <button>View Application</button>
+         </div>
+      </div>';
+            // Rejected Application 3
+            echo'<div class="application-box">
+         <div class="content">
+            <h2>Muhammad Khairul Nizam</h2>
+            <p>Job : Graphics Designer</p>
+            <p>Reason: Overqualified</p>
+            <p>Rejected Date: 20 March 2024</p>
+         </div>
+         <div class="view-application">
+            <button>View Application</button>
+         </div>
+        <div class="view-application">
+          <button>View Application</button>
+        </div>
+      </div>';
+            // Rejected Application 4
+            echo'<div class="application-box">
+         <div class="content">
+            <h2>Tan Chen Seong</h2>
+            <p>Job : Graphics Designer</p>
+            <p>Reason: Not a good fit for the role</p>
+            <p>Rejected Date: 20 March 2024</p>
+         </div>
+         <div class="view-application">
+            <button>View Application</button>
+         </div>
+        <div class="view-application">
+          <button>View Application</button>
+        </div>
+      </div>';
+
+        } elseif (isset($_POST["pending"])) {
+            // Pending Application 1
+            echo'<div class="application-box">
+      <div class="content">
+        <h2>Lee Ming Jie</h2>
+        <p>Job: Web Developer</p>
+        <p>Reason: Pending review</p>
+        <p>Application Date: 25 April 2024</p>
+      </div>
+      <div class="view-application">
         <button>View Application</button>
-     </div>
-  </div>';
-        // Rejected Application 2
-        echo' <div class="application-box">
-     <div class="content">
-        <h2>Alya Natasya</h2>
-        <p>Job : Web Designer</p>
-        <p>Reason: Not a good fit for the role</p>
-        <p>Rejected Date: 27 March 2024</p>
-     </div>
-     <div class="view-application">
+      </div>
+    </div>';
+            // Pending Application 2
+            echo'<div class="application-box">
+      <div class="content">
+        <h2>Tan Hui Yin</h2>
+        <p>Job: Web Developer</p>
+        <p>Reason: Pending review</p>
+        <p>Application Date: 25 April 2024</p>
+      </div>
+      <div class="view-application">
         <button>View Application</button>
-     </div>
-  </div>';
-        // Rejected Application 3
-        echo'<div class="application-box">
-     <div class="content">
-        <h2>Muhammad Khairul Nizam</h2>
-        <p>Job : Graphics Designer</p>
-        <p>Reason: Overqualified</p>
-        <p>Rejected Date: 20 March 2024</p>
-     </div>
-     <div class="view-application">
+      </div>
+    </div>';
+            // Pending Application 3
+            echo'<div class="application-box">
+      <div class="content">
+        <h2>Nivin Thomas</h2>
+        <p>Job: Web Developer</p>
+        <p>Reason: Pending review</p>
+        <p>Application Date: 25 April 2024</p>
+      </div>
+      <div class="view-application">
         <button>View Application</button>
-     </div>
-    <div class="view-application">
-      <button>View Application</button>
-    </div>
-  </div>';
-        // Rejected Application 4
-        echo'<div class="application-box">
-     <div class="content">
-        <h2>Tan Chen Seong</h2>
-        <p>Job : Graphics Designer</p>
-        <p>Reason: Not a good fit for the role</p>
-        <p>Rejected Date: 20 March 2024</p>
-     </div>
-     <div class="view-application">
-        <button>View Application</button>
-     </div>
-    <div class="view-application">
-      <button>View Application</button>
-    </div>
-  </div>';
-        
-    } elseif (isset($_POST["pending"])) {
-        // Pending Application 1
-        echo'<div class="application-box">
-  <div class="content">
-    <h2>Lee Ming Jie</h2>
-    <p>Job: Web Developer</p>
-    <p>Reason: Pending review</p>
-    <p>Application Date: 25 April 2024</p>
-  </div>
-  <div class="view-application">
-    <button>View Application</button>
-  </div>
-</div>';
-        // Pending Application 2
-        echo'<div class="application-box">
-  <div class="content">
-    <h2>Tan Hui Yin</h2>
-    <p>Job: Web Developer</p>
-    <p>Reason: Pending review</p>
-    <p>Application Date: 25 April 2024</p>
-  </div>
-  <div class="view-application">
-    <button>View Application</button>
-  </div>
-</div>';
-        // Pending Application 3
-        echo'<div class="application-box">
-  <div class="content">
-    <h2>Nivin Thomas</h2>
-    <p>Job: Web Developer</p>
-    <p>Reason: Pending review</p>
-    <p>Application Date: 25 April 2024</p>
-  </div>
-  <div class="view-application">
-    <button>View Application</button>
-  </div>
-</div>';
+      </div>
+    </div>';
     }
 }
 ?>
 
-    <!-- Footer -->
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -313,37 +314,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="footer-section">
                         <h3>Students</h3>
                         <ul>
-                            <li><a href="#">Search</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="findjob_notlogin.php">Job Search</a></li>
+                            <li><a href="signin.php">Profile</a></li>
+                            <li><a href="signin.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Companies</h3>
                         <ul>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Post Job</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
+                            <li><a href="findcandidate_company.php">Candidates</a></li>
+                            <li><a href="register.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="aboutus_company.php">About Us</a></li>
+                            <li><a href="contactus_company.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </footer>
+
     <script>
-    // Event listener to the "Sign Out" link
-    document.querySelector('.signout').addEventListener('click', function() {
-      // Redirect the user to index.php
-      window.location.href = 'index.php';
-    });
-  </script>
+        // Event listener to the "Sign Out" link
+        document.querySelector('.signout').addEventListener('click', function() {
+            // Redirect the user to index.php
+            window.location.href = 'index.php';
+        });
+
+    </script>
 </body>
+
 </html>

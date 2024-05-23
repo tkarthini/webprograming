@@ -13,24 +13,25 @@
         <div class="container">
             <a href="aboutus_company.php">
                 <img src="images/logo.png" alt="Job Seeker" class="logo">
-                <nav>
-                    <ul>
-                        <li><a href="aboutus_company.php">About Us</a></li>
-                        <li><a href="findcandidate_company.php">Candidate Profiles</a></li>
-                        <li><a href="manageapplication_company.php">Applications</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <div class="dropdown">
-                            <a href="#" class="dropbtn"><img src="images/profile.png" alt="Profile" class="signin-img"></a>
-                            <div class="dropdown-content">
-                                <a href="#">Profile</a>
-                                <a href="manageapplication_company.php">Manage Application</a>
-                                <a href="settings_company.php">Settings</a>
-                                <hr>
-                                <a href="#" class="signout">Sign Out</a>
-                            </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="aboutus_company.php">About Us</a></li>
+                    <li><a href="findcandidate_company.php">Candidate Profiles</a></li>
+                    <li><a href="manageapplication_company.php">Applications</a></li>
+                    <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
+                    <div class="dropdown">
+                        <a href="#" class="dropbtn"><img src="images/profile.png" alt="Profile" class="signin-img"></a>
+                        <div class="dropdown-content">
+                            <a href="companyprofile(boomedia)_company.php">Profile</a>
+                            <a href="manageapplication_company.php">Manage Application</a>
+                            <a href="settings_company.php">Settings</a>
+                            <hr>
+                            <a href="index.php" class="signout">Sign Out</a>
                         </div>
-                    </ul>
-                </nav>
+                    </div>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -61,7 +62,7 @@
             <div>
                 <button id="VisualLiteracy">Communication Skills</button>
                 <button id="VisualLiteracy">Team Collaboration</button>
-                
+
             </div>
 
             <h4 id="Education">Education</h4>
@@ -103,40 +104,40 @@
                     <div class="footer-section">
                         <h3>Students</h3>
                         <ul>
-                            <li><a href="#">Search</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="findjob_notlogin.php">Job Search</a></li>
+                            <li><a href="signin.php">Profile</a></li>
+                            <li><a href="signin.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Companies</h3>
                         <ul>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Post Job</a></li>
-                            <li><a href="#">Manage Application</a></li>
+                            <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
+                            <li><a href="findcandidate_company.php">Candidates</a></li>
+                            <li><a href="register.php">Manage Application</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="aboutus_company.php">About Us</a></li>
+                            <li><a href="contactus_company.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </footer>
-    
-   <script>
-    function openResume() {
-        // Define the URL of the resume image
-        var resumeImage = "images/resume_fatihasuhana.png";
-        // Open the pop-up window with the image
-        var popupWindow = window.open(resumeImage, "_blank", "width=600,height=400");
-    }
-</script>
+    <script>
+        function openResume() {
+            // Define the URL of the resume image
+            var resumeImage = "images/resume_fatihasuhana.png";
+            // Open the pop-up window with the image
+            var popupWindow = window.open(resumeImage, "_blank", "width=600,height=400");
+        }
 
-    </body>
-    </html>
+    </script>
+
+</body>
+
+</html>
