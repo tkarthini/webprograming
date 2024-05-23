@@ -57,6 +57,19 @@ nav ul li a {
   background-color: #FF5470;
 }
 
+#signinBtn {
+  color: #000;
+  background-color: #00EBC7;
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#signinBtn:hover {
+  background-color: #FF5470;
+}
+
 /* REGISTER FORM */
 .containerR {
     width: 400px;
@@ -65,7 +78,8 @@ nav ul li a {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .containerR h2 {
@@ -189,3 +203,28 @@ footer {
   align-items: flex-start;
 }
 
+
+/*student or company*/
+.input-groupC label {
+    display: inline-block;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.input-groupC input[type="radio"] {
+    display: none;
+}
+
+.input-groupC label::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.input-groupC input[type="radio"]:checked + label::before {
+    background-color: #000;
+}

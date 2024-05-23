@@ -267,7 +267,7 @@ p {
   display: inline-block;
 }
 
-.view-application {
+.applybtn {
   position: absolute;
   bottom: 10px;
   right: 10px;
