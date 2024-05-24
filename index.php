@@ -31,8 +31,8 @@ if (!$conn) {
           <ul>
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="findjob_notlogin.php">Find Jobs</a></li>
-            <li><a href="signin.php" id="signinBtn">Sign In</a></li>
             <li><a href="backend_admin_login.php" id="backendSigninBtn">Admin Sign In</a></li>
+            <li><a href="signin.php" id="signinBtn">Sign In</a></li>
           </ul>
         </nav>
       </a>
