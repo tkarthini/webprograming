@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.signin-img {
+    width: 60px;
+    height: auto;
+    padding-left: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background-color: #00214D;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1;
+    top: 100%;
+    right: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown-content a:hover {
+    background-color: #00EBC7;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.line {
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.dropdown-content a.signout {
+    color: #FF0000; 
+}
+
+/* Body */
+body {
+    background-image: url('images/background2.jpeg');
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-picture-container {
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.edit-profile-button {
+    z-index: 10; 
+    cursor: pointer; 
+    display: block;
+    background-color: #00214D;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.edit-profile-button:hover {
+    background-color: #0653b5;
+}
+
+.profile-details {
+    flex: 2;
+    margin-left: 20px;
+}
+
+.profile-details h2 {
+    margin-bottom: 10px;
+    color: #0779e4;
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #00EBC7;
+    color: #fff;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    width: 200px;
+    margin-right: auto

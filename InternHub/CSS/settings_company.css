@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('CSS/images/background1.jpeg');
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  background: #FFFFFF;
+  color: #000000;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 100px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+
+.signin-img {
+  width: 60px;
+  height: auto;
+  padding-left: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding: 20px;
+  background-color: #00214D;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1;
+  top: 100%;
+  right: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.dropdown-content a:hover {
+  background-color: #00EBC7;
+  color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.line {
+  border-top: 1px solid #ccc;
+  margin: 5px 0;
+}
+
+.dropdown-content a.signout {
+  color: #FF0000; 
+}
+
+/* FOOTER */
+footer {
+  background: #00EBC7;
+  color: #fff;
+  padding: 30px 10px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo img {
+  width: 200px;
+  margin-right: auto;
+}
+
+.footer-links {
+  display: flex;
+}
+
+.footer-section {
+  margin-right: 80px;
+}
+
+.footer-section:last-child {
+  margin-right: 100px;
+}
+
+.footer-section h3 {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-section:nth-child(1) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section:nth-child(2) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section:nth-child(3) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* HEADER */
+.header{
+  margin: 50px 0;
+  margin-left: 260px;
+  font-size: 25px;
+}
+
+#accountHeader {
+  color: #fff;
+  font-size: 35px;
+}
+
+.containerS {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.additional-box {
+  width: 60%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.additional-box h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.additional-box p {
+  font-size: 24px;
+  color: #6E6E6E;
+}
+
+.additional-box #editEmail {
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  cursor: pointer;
+}
+
+.containerP {
+  margin-left: 360px;
+}
+
+.additional-box2 {
+  width: 77%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.additional-box2 h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.additional-box2 p {
+  font-size: 24px;
+  color: #6E6E6E;
+}
+
+.additional-box2 #editPassword {
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  cursor: pointer;
+}
+
+.additional-box2 #editPassword img {
+  width: 20px;
+}
+
+.settings-box .header-box {
+  background-color: #00214D;
+  padding: 20px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.settings-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* EDIT POP UP */
+.edit-window {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.edit-window-content {
+  background-color: #fefefe;
+  margin:10% auto;
+  padding: 40px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  max-width: 470px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.edit-window-content h2 {
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+.edit-window-content label {
+  font-size: 24px; 
+}
+
+.edit-window-content input {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.edit-window-content button {
+  background-color: #00214D;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+.edit-window-content button:hover {
+  background-color: #000812;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 38px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Delete Account Box */
+.delete-account-box {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-top: 90px;
+}
+
+.delete-account-box h3 {
+  font-size: 40px;
+}
+
+.delete-account-box button {
+  color: #D20707;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 28px; 
+}
+
+/* Buttons in confirm delete window */
+.button-container button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  background-color: #00214D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #ff3333;
+}
+
+.button-container button:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('CSS/images/background1.jpeg')
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* HEADER */
+header {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.signin-img {
+    width: 60px;
+    height: auto;
+    padding-left: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background-color: #00214D;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1;
+    top: 100%;
+    right: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown-content a:hover {
+    background-color: #00EBC7;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.line {
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.dropdown-content a.signout {
+    color: #FF0000;
+}
+
+
+
+/* BODY */
+/* Apply for Job Form */
+.containerZ {
+    max-width: 600px;
+    margin: 50px auto; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containerZ h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.containerZ form {
+    text-align:;
+}
+
+.containerZ label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.containerZ input[type="text"],
+.containerZ input[type="email"],
+.containerZ input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.containerZ input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #00214D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.containerZ input[type="submit"]:hover {
+    background-color: #00CCAA;
+}
+
+.containerZ textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical; 
+}
+
+
+
+/* FOOTER */
+footer {
+    background: #00EBC7;
+    color: #fff;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    width: 200px;
+    margin-right: auto;
+}
+
+.footer-links {
+    display: flex;
+}
+
+.footer-section {
+    margin-right: 80px;
+}
+
+.footer-section:last-child {
+    margin-right: 100px;
+}
+
+.footer-section h3 {
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section:nth-child(1) ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-section:nth-child(2) ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-section:nth-child(3) ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
