@@ -4,7 +4,7 @@ include_once "connection.php";
 session_start();
 
 $message = "";
-$redirectUrl = ""; 
+$redirectUrl = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signin"])) {
     // Collect inputs from the form
@@ -26,12 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signin"])) {
     if ($result->num_rows > 0) {
         // User exists
         $user_exists = true;
-        
+
         // Fetch user data
         $user = $result->fetch_assoc();
-        
+
         // Validate password
-        if (password_verify($pwd, $user['user_password'])) {
+        if ($pwd == $user['user_password']) {
             // Password is correct
             logSignInEvent($user['user_id']);
             // Redirect the user based on user type
@@ -63,7 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signin"])) {
 }
 
 // Function to log sign-in event
-function logSignInEvent($userId) {
+function logSignInEvent($userId)
+{
     global $connection;
     $sql_insert_log = $connection->prepare("INSERT INTO user_logs (user_id, event_type, event_timestamp) VALUES (?, 'Sign In', NOW())");
     if (!$sql_insert_log) {
@@ -88,12 +89,14 @@ if (isset($_SESSION['redirectUrl'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InternHub - Sign In</title>
     <link rel="stylesheet" href="CSS/signin.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -162,14 +165,15 @@ if (isset($_SESSION['redirectUrl'])) {
         </div>
     </footer>
     <script>
-    var message = "<?php echo $message; ?>";
-    var redirectUrl = "<?php echo $redirectUrl; ?>";
-    if (message.trim() !== "") {
-        alert(message);
-        if (redirectUrl !== "") {
-            window.location.replace(redirectUrl);
+        var message = "<?php echo $message; ?>";
+        var redirectUrl = "<?php echo $redirectUrl; ?>";
+        if (message.trim() !== "") {
+            alert(message);
+            if (redirectUrl !== "") {
+                window.location.replace(redirectUrl);
+            }
         }
-    }
     </script>
 </body>
+
 </html>

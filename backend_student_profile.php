@@ -13,10 +13,6 @@ if ($result->num_rows == 1) {
         $studentInfo = $row;
         $skillset = explode(',', $studentInfo["skillset"]);
         $interests = explode(',', $studentInfo["interests"]);
-
-        if ($row['active'] == 0) {
-            echo '<script>alert("Student is deleted")</script>';
-        }
     }
 }
 
@@ -44,55 +40,57 @@ if (isset($_POST['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InternHub - <?php echo $studentInfo["student_name"]; ?></title>
-    <link rel="stylesheet" href="CSS/backend_student_profile.css">
+    <link rel="stylesheet" href="backend_student_profile.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <img src="css/images/logo.png" alt="Job Seeker" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="backend_admin_job.php">Posted Jobs</a></li>
-                    <li><a href="backend_admin_students.php">Students</a></li>
-                    <li><a href="backend_admin_company.php">Companies</a></li>
-                    <div class="dropdown">
-                        <a href="#" class="dropbtn"><img src="css/images/profile.png" alt="Profile" class="signin-img"></a>
-                        <div class="dropdown-content" style="min-width: 15ch;">
-                            <a href="backend_acc_deletion_student.php">Deletion</a>
-                            <a href="backend_acc_setting.php">Settings</a>
-                            <hr>
-                            <a href="index.php" class="signout">Sign Out</a>
+            <a href="aboutus_company.php">
+                <img src="images/logo.png" alt="Job Seeker" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="aboutus_company.php">About Us</a></li>
+                        <li><a href="findcandidate_company.php">Candidate Profiles</a></li>
+                        <li><a href="manageapplication_company.php">Applications</a></li>
+                        <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
+                        <div class="dropdown">
+                            <a href="#" class="dropbtn"><img src="images/profile.png" alt="Profile" class="signin-img"></a>
+                            <div class="dropdown-content">
+                                <a href="companyprofile(boomedia)_company.php">Profile</a>
+                                <a href="manageapplication_company.php">Manage Application</a>
+                                <a href="settings_company.php">Settings</a>
+                                <hr>
+                                <a href="index.php" class="signout">Sign Out</a>
+                            </div>
                         </div>
-                    </div>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
+            </a>
         </div>
     </header>
 
     <body>
         <div class="content">
-            <img id="profilebackground" src="css/images/student-default-background.jpg" width="100%" height="40%">
-            <img id="profilepicture" src="uploads/<?php echo $studentInfo['student_profilepicture']; ?>" width="300px" height="400px">
+            <img id="profilebackground" src="images/abbycoverpic.webp" width="100%" height="60%">
+            <img id="profilepicture" src="images/<?php echo $studentInfo['image_path']; ?>" width="300px" height="400px">
         </div>
 
         <section id="scrollToSection" class="hero">
 
             <div>
                 <h3 id="Name"><?php echo $studentInfo["student_name"]; ?>
-                    <br><img id="x" src="css/images/x.jpg" width="40px"> <img id="facebook" src="css/images/facebook logo.webp" width="65px"><img id="ins" src="css/images/ins logo.webp" width="40px">
+                    <br><img id="x" src="images/X%20logo.webp" width="40px"> <img id="facebook" src="images/facebook logo.webp" width="65px"><img id="ins" src="images/ins logo.webp" width="40px">
                 </h3>
-
-                <!-- Trigger/Open The Modal -->
-                <?php if ($studentInfo['active'] == 1) : ?>
-                    <button class="delete-btn" id="openModal">Delete Profile</button>
-                <?php endif; ?>
-
                 <h4 id="Summary">Profile Summary</h4>
-                <p id="ssummary"><?php echo $studentInfo["student_aboutme"]; ?></p>
+                <p id="ssummary"><?php echo $studentInfo["profile_description"]; ?></p>
             </div>
 
-            <!-- Delete Profile Modal -->
+
+            <!-- Trigger/Open The Modal -->
+            <button id="openModal">Delete Profile</button>
+
+            <!-- The Modal -->
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
@@ -103,35 +101,15 @@ if (isset($_POST['id'])) {
                     </div>
 
                     <ul>
-                        <li class="modal-li">Wrong/Inapproriate Content</li>
-                        <li class="modal-li">Inactive Account</li>
-                        <li class="modal-li">Policy Compliance</li>
-                        <li class="modal-li">Spam, Fraudulent activity, or unauthorized access attempts</li>
-                        <li class="modal-li">Do not meet certain criteria or validation requirements</li>
-                        <li class="modal-li">Others</li>
+                        <li>Coffee</li>
+                        <li>Tea</li>
+                        <li>Milk</li>
                     </ul>
 
                     <form action="#" method="post">
                         <input type="hidden" name="id" value="<?php echo $studentInfo['student_id']; ?>">
-                        <button class="delete-btn" type="submit" name="delete">Delete</button>
+                        <button class="box-button" type="submit" name="delete">Delete</button>
                     </form>
-                </div>
-
-            </div>
-
-            <!-- Deleted Modal -->
-            <div id="deletedModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div style="text-align: center;">
-                        <h2>Inactive Account</h2>
-                    </div>
-
-                    <ul>
-                        <li class="modal-li">Deleted Student Profile</li>
-                    </ul>
                 </div>
 
             </div>
@@ -172,11 +150,11 @@ if (isset($_POST['id'])) {
         <p id="email"><?php echo $studentInfo['student_email']; ?></p>
 
         <h4 id="llocation">Location</h4>
-        <p id="location"><?php echo $studentInfo['student_location']; ?></p>
+        <p id="location"><?php echo $studentInfo['location']; ?></p>
 
         <!-- Map link -->
         <form action="<?php echo $studentInfo['map_link']; ?>">
-            <input type="image" src="css/images/map.png" style="height: 100px;width: 100px; margin-left: 3%;" />
+            <input type="image" src="css/images/map.png" style="height: 100px;width: 160px; padding-left: 5%;" />
         </form>
 
         <button id="viewresumeBtn" onclick="openResume()">View Resume</button>
@@ -188,7 +166,7 @@ if (isset($_POST['id'])) {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="css/images/logo.png" alt="Job Seeker">
+                    <img src="images/logo.png" alt="Job Seeker">
                 </div>
                 <nav class="footer-links">
                     <div class="footer-section">

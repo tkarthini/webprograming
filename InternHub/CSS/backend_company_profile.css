@@ -113,6 +113,24 @@ nav ul li a {
     padding-top: 8rem;
 }
 
+#companylocation {
+    font-size:25px;
+    margin-left: 25rem;
+}
+
+#who-we-are {
+    margin-left: 4rem;
+    margin-top: 1rem;
+    padding-top: 3rem;
+    font-size: 30px;
+}
+
+#available-job {
+    margin-left: 4rem;
+    margin-top: 1rem;
+    font-size: 30px;
+}
+
 #x {
     padding-bottom: 10px;
 }
@@ -429,6 +447,42 @@ footer {
     height: 100px;
     width: 100px;
     padding-left: 5%;
+}
+
+.company-who-we-are {
+    background-color: orange;
+    padding-bottom: 2rem;
+}
+
+.available-job {
+    background-color: #00EBC7;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 40%;
+    margin-left: 4rem;
+}
+
+#available-job-content {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.box-button {
+  /* position: absolute; */
+  bottom: 10px;
+  right: 10px;
+  background-color: #fff;
+  color: #000;
+  /* border: ; */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  
+}
+
+.box-button:hover {
+  background-color: #FF5470;
 }
 
 .modal-li {

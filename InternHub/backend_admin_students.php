@@ -1,5 +1,5 @@
 <?php
-include_once "brackets/connection.php";
+include_once "connection.php";
 
 // Select from student_table
 $sql = "SELECT * FROM student_table WHERE active=1 ORDER BY student_timestamp ASC";
@@ -69,27 +69,26 @@ if (isset($_POST['search'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InternHub - Back End Student</title>
-    <link rel="stylesheet" href="base_css.css">
-    <link rel="stylesheet" href="CSS/backend_admin_job.css">
+    <link rel="stylesheet" href="css/base_css.css">
+    <link rel="stylesheet" href="css/backend_admin_job.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <img src="images/logo.png" alt="Job Seeker" class="logo">
+            <img src="css/images/logo.png" alt="Job Seeker" class="logo">
             <nav>
                 <ul>
-                    <li><a href="#">Posted Jobs</a></li>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Companies</a></li>
+                    <li><a href="backend_admin_job.php">Posted Jobs</a></li>
+                    <li><a href="backend_admin_students.php">Students</a></li>
+                    <li><a href="backend_admin_company.php">Companies</a></li>
                     <div class="dropdown">
-                        <a href="#" class="dropbtn"><img src="images/profile.png" alt="Profile" class="signin-img"></a>
+                        <a href="#" class="dropbtn"><img src="css/images/profile.png" alt="Profile" class="signin-img"></a>
                         <div class="dropdown-content" style="min-width: 15ch;">
-                            <a href="#">Profile</a>
-                            <a href="#">Deletion</a>
-                            <a href="#">Settings</a>
+                            <a href="backend_acc_deletion_student.php">Deletion</a>
+                            <a href="backend_acc_setting.php">Settings</a>
                             <hr>
-                            <a href="#" class="signout">Sign Out</a>
+                            <a href="index.php" class="signout">Sign Out</a>
                         </div>
                     </div>
                 </ul>
@@ -124,11 +123,11 @@ if (isset($_POST['search'])) {
         <!-- <li><?php echo $color; ?></li> -->
         <div class="box-container">
             <div class="box">
-                <img src="images/boomedia.png" alt="Example Image" class="box-image">
+                <img src="uploads/<?php echo $student['student_profilepicture']; ?>" alt="Example Image" class="box-image">
                 <div class="box-content">
                     <h2><?php echo $student["student_name"]; ?></h2>
-                    <p><?php echo $student["age"]; ?></p>
-                    <p><?php echo $student["location"]; ?></p>
+                    <p><?php echo $student["student_age"]; ?></p>
+                    <p><?php echo $student["student_location"]; ?></p>
                     <p><?php echo $student["programme"]; ?></p>
                     <!-- <button class="box-button">Edit</button>
           <button class="box-button">Delete</button> -->
@@ -149,7 +148,7 @@ if (isset($_POST['search'])) {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Job Seeker">
+                    <img src="css/images/logo.png" alt="Job Seeker">
                 </div>
                 <nav class="footer-links">
                     <div class="footer-section">

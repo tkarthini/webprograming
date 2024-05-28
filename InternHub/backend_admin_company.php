@@ -1,27 +1,26 @@
 <?php
 include_once "connection.php";
 
-// Select from internship_table
-$sql = "SELECT * FROM internship_table WHERE active=1 ORDER BY internship_timestamp ASC";
+// Select from company_table
+$sql = "SELECT * FROM company_table WHERE active=1 ORDER BY company_timestamp ASC";
 $result = $connection->query($sql);
-$internships = array();
-// echo $result;
+$companies = array();
 
 if ($result->num_rows > 0) {
   // output data of each row
   while ($row = $result->fetch_assoc()) {
-    // $internships
-    array_push($internships, $row);
+    // $companies
+    array_push($companies, $row);
   }
 }
 
 if (isset($_POST['id'])) {
-  $internshipId = $_POST['id'];
+  $companyId = $_POST['id'];
 
-  $sql = $connection->prepare("UPDATE internship_table SET active = 0 WHERE id=?");
+  $sql = $connection->prepare("UPDATE company_table SET active = 0 WHERE company_id=?");
 
   // Execute the SQL statement
-  $result = $sql->execute([$internshipId]);
+  $result = $sql->execute([$companyId]);
 
   if ($result) {
     $message = "Successfully deleted";
@@ -33,31 +32,30 @@ if (isset($_POST['id'])) {
 if (isset($_POST['sorting'])) {
   $sort = $_POST['sort'];
   if ($sort == "newest") {
-    $sql = "SELECT * FROM internship_table WHERE active=1 ORDER BY internship_timestamp DESC";
+    $sql = "SELECT * FROM company_table WHERE active=1 ORDER BY company_timestamp DESC";
     $result = $connection->query($sql);
   } else {
-    $sql = "SELECT * FROM internship_table WHERE active=1 ORDER BY internship_timestamp ASC";
+    $sql = "SELECT * FROM company_table WHERE active=1 ORDER BY company_timestamp ASC";
     $result = $connection->query($sql);
   }
 
   if ($result->num_rows > 0) {
-    $internships = array();
+    $companies = array();
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-      // $internships
-      array_push($internships, $row);
+      array_push($companies, $row);
     }
   }
 }
 
 if (isset($_POST['search'])) {
   $searchtext = $_POST['search_text'];
-  $result = $connection->execute_query("SELECT * FROM internship_table WHERE active=1 AND internship_title LIKE ?", ['%' . $searchtext . '%']);
+  $result = $connection->execute_query("SELECT * FROM company_table WHERE active=1 AND company_name LIKE ?", ['%' . $searchtext . '%']);
   if ($result->num_rows > 0) {
-    $internships = array();
+    $companies = array();
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-      array_push($internships, $row);
+      array_push($companies, $row);
     }
   }
 }
@@ -69,7 +67,7 @@ if (isset($_POST['search'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InternHub - Back End Jobs</title>
+  <title>InternHub - Back End Comapny</title>
   <link rel="stylesheet" href="base_css.css">
   <link rel="stylesheet" href="CSS/backend_admin_job.css">
 </head>
@@ -98,43 +96,39 @@ if (isset($_POST['search'])) {
   </header>
 
   <div class="search-section">
-    <h1>Find your internship here</h1>
+    <h1>Find the right company for you </h1>
     <div class="search-container">
-      <form action="#" method="post" class="search-form">
-        <input type="text" placeholder="Search job title" name="search_text">
-        <button type="submit" name="search">Search</button>
-      </form>
+      <input type="text" placeholder="Search by company name">
+      <button type="submit">Search</button>
     </div>
     <hr>
-    <h3>Showing recommended internship result</h3>
-
+    <h3>Showing recommended company result</h3>
     <!-- Form with dropdown for sorting -->
-    <form action="#" method="post" class="sorting-form">
+    <form action="#" method="get">
       <label for="sort">Sort By:</label>
       <select name="sort" id="sort">
         <option value="newest">Newest First</option>
         <option value="oldest">Oldest First</option>
       </select>
-      <button type="submit" value="sorting" name="sorting">Sort</button>
+      <button type="submit">Sort</button>
     </form>
   </div>
 
-  </div>
-  <?php foreach ($internships as $internship) : ?>
-    <!-- <li><?php echo $color; ?></li> -->
+  <?php foreach ($companies as $company) : ?>
     <div class="box-container">
       <div class="box">
-        <img src="CSS/images/boomedia.png" alt="Example Image" class="box-image">
+        <img src="css/images/<?php echo $company['image_name']; ?>" alt=" Example Image" class="box-image">
         <div class="box-content">
-          <h2><?php echo $internship["internship_title"]; ?></h2>
-          <p><?php echo $internship["internship_location"]; ?></p>
-          <p><?php echo $internship["internship_description"]; ?></p>
-          <p><?php echo $internship["internship_allowance"]; ?></p>
-          <!-- <button class="box-button">Edit</button>
-          <button class="box-button">Delete</button> -->
+          <h2><?php echo $company["company_name"]; ?></h2>
+          <p><?php echo $company["company_location"]; ?></p>
+          <p><?php echo $company["company_description"]; ?></p>
           <form action="#" method="post">
-            <input type="hidden" name="id" value="<?php echo $internship['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $company['company_id']; ?>">
             <button class="box-button" type="submit" name="delete">Delete</button>
+          </form>
+          <form action="backend_company_profile.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $company['company_id']; ?>">
+            <button class="box-button" type="submit" style="margin-right: 13%">View</button>
           </form>
         </div>
       </div>
@@ -176,7 +170,5 @@ if (isset($_POST['search'])) {
     </div>
   </footer>
 </body>
-
-
 
 </html>

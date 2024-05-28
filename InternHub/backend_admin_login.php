@@ -1,5 +1,6 @@
 <?php
-include_once "brackets/connection.php";
+include_once "connection.php";
+session_start();
 
 // && isset($_POST["signup"])
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,13 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username"];
   $password = $_POST["password"];
 
-  $sql = "SELECT * FROM user_table WHERE user_type=1 AND user_name='$username' AND user_password='$password'";
+  $sql = "SELECT * FROM user_table WHERE user_type='admin' AND user_name='$username' AND user_password='$password'";
   $result = $connection->query($sql);
 
   // echo $result;
 
   if ($result->num_rows > 0) {
-    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+      $_SESSION['user_id'] = $row['user_id'];
+    }
     header("Location: backend_admin_job.php");
   } else {
     echo '<script>alert("Invalid username/password!")</script>';
@@ -27,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InternHub - Log In</title>
+  <title>InternHub - Admin Log In</title>
   <link rel="stylesheet" href="CSS/signin.css">
 </head>
 
 <body>
   <header>
     <div class="container">
-      <img src="images/logo.png" alt="Job Seeker" class="logo">
+      <img src="CSS/images/logo.png" alt="Job Seeker" class="logo">
     </div>
   </header>
 
@@ -62,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="images/logo.png" alt="Job Seeker">
+          <img src="CSS/images/logo.png" alt="Job Seeker">
         </div>
         <nav class="footer-links">
           <div class="footer-section">
@@ -76,16 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="footer-section">
             <h3>Companies</h3>
             <ul>
-              <li><a href="companyprofile(boomedia)_company.php">Profile</a></li>
-              <li><a href="findcandidate_company.php">Candidates</a></li>
+              <li><a href="register.php">Register</a></li>
+              <li><a href="register.php">Profile</a></li>
               <li><a href="register.php">Manage Application</a></li>
             </ul>
           </div>
           <div class="footer-section">
             <h3>Support</h3>
             <ul>
-              <li><a href="aboutus_company.php">About Us</a></li>
-              <li><a href="contactus_company.php">Contact Us</a></li>
+              <li><a href="aboutus.php">About Us</a></li>
+              <li><a href="contactus.php">Contact Us</a></li>
             </ul>
           </div>
         </nav>
